@@ -1,0 +1,10 @@
+.navbar-nav {
+  margin: 5px;
+  margin-left: 17%;
+}
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: aqua;
+}
