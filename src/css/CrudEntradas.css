@@ -1,21 +1,28 @@
-.hearder {
-  margin-top: 9%;
+.container-table {
+  width: 60%;
+}
+.Container-formulario {
+  margin: 0px;
+  padding: 0px;
+  width: 350px;
+}
+.Container-titulo {
+  width: 300px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-.container {
-  width: 43%;
+.Container-titulo h4 {
+  padding: 10px;
 }
 
+.Formulario {
+  border-radius: 15px;
+  border: 1px solid;
+  border-color: rgb(192, 192, 192);
+  margin-right: 15px;
+  width: 300px;
+}
 .btn {
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 50%;
-}
-
-.nav-item a {
-  color: white;
-}
-
-.nav-item a:hover {
-  color: #0dcaf0;
+  margin-bottom: 15px;
 }
