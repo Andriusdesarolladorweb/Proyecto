@@ -1,17 +1,35 @@
 import "../css/CrudEntradas.css";
 import React, { useState } from "react";
 
+//Array para mostra datos en la tabla
 export default function CrudEntradas() {
   const mostrar = [
     { id: 1, monto: 15000, fecha: "14/6/ 2024", concepto: "Pago Quincena" },
     { id: 1, monto: 15000, fecha: "14/6/ 2024", concepto: "Pago Quincena" },
     { id: 1, monto: 15000, fecha: "14/6/ 2024", concepto: "Pago Quincena" },
+    { id: 1, monto: 15000, fecha: "14/6/ 2024", concepto: "Pago Quincena" },
+    { id: 1, monto: 15000, fecha: "14/6/ 2024", concepto: "Pago Quincena" },
   ];
+
   const [data, setData] = useState(mostrar);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const insertar = () => {
+    var ValorInsertar = mostrar;
+    ValorInsertar.id = data[data.length - 1].id + 1;
+    var dataNueva = data;
+    dataNueva.push(ValorInsertar);
+    setData(dataNueva);
+  };
 
   return (
     <div>
-      <div className="user-form d-flex  justify-content-center p-5">
+      <div className="container-primary d-flex  justify-content-center p-5">
         <div className="Container-formulario">
           <form className=" Formulario bg-white    text-black">
             <div className="Container-titulo bg-primary">
@@ -27,6 +45,7 @@ export default function CrudEntradas() {
                   className="form-control"
                   id="Monto"
                   name="Monto"
+                  onChange={handleChange}
                 />
               </div>
               <div className="mb-3 mt-3">
@@ -38,6 +57,7 @@ export default function CrudEntradas() {
                   className="form-control"
                   id="Fecha"
                   name="Fecha"
+                  onChange={handleChange}
                 />
               </div>
               <div className="mb-3">
@@ -49,19 +69,22 @@ export default function CrudEntradas() {
                   className="form-control"
                   id="Concepto"
                   name="Concepto"
+                  onChange={handleChange}
                 />
               </div>
               <button
                 type="submit"
-                className="btn btn-primary submit-btn bg-primary text-center "
+                className="btn btn-primary submit-btn text-center d-flex m-auto "
+                onClick={insertar}
               >
                 Agregar
               </button>
+              <br />
             </div>
           </form>
         </div>
         <div className="container-table ">
-          <table className="table table-bordered ">
+          <table className="table table-bordered table-striped ">
             <thead>
               <tr>
                 <th>ID</th>
@@ -78,10 +101,9 @@ export default function CrudEntradas() {
                   <td>{elemento.monto}</td>
                   <td>{elemento.fecha}</td>
                   <td>{elemento.concepto}</td>
-                  <td className="d-flex">
-                    <button className="btn btn-primary">Editar</button>
-                    {"   "}
-                    <button className="btn btn-danger">Eliminar</button>
+                  <td className="d-flex ">
+                    <button className="btn btn-primary ">Editar</button>
+                    <button className="btn btn-danger ">Eliminar</button>
                   </td>
                 </tr>
               ))}
