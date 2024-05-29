@@ -22,12 +22,12 @@ export default function Menu() {
             <ul class="navbar-nav ">
               <li class="nav-item">
                 <a class="nav-link  " aria-current="page" href="#">
-                  Entradas fijas
+                  Entradas
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="#">
-                  Gastos fijos
+                  Gastos
                 </a>
               </li>
               <li class="nav-item">
