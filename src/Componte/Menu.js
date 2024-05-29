@@ -37,7 +37,7 @@ export default function Menu() {
               </li>
               <li class="nav-item">
                 <a class="nav-link  " href="#">
-                  Plan de pagos Laptop
+                  Plan de pagos
                 </a>
               </li>
 
