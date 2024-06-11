@@ -1,5 +1,7 @@
 import "../css/CrudEntradas.css";
 import React, { useState, useEffect } from "react";
+import imgEditar from "../img/Editar.png";
+import imgEliminar from "../img/borrar.png";
 
 export default function CrudEntradas() {
   const mostrarDatos = [
@@ -159,7 +161,8 @@ export default function CrudEntradas() {
                 <th>Monto</th>
                 <th>Fecha</th>
                 <th>Concepto</th>
-                <th>Acciones</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -171,16 +174,18 @@ export default function CrudEntradas() {
                   <td>{elemento.concepto}</td>
                   <td className="d-flex">
                     <button
-                      className="btn btn-primary"
+                      className="btn "
                       onClick={() => handleEditClick(elemento.id)}
                     >
-                      Editar
+                      <img src={imgEditar} alt="" className="imgEditar" />
                     </button>
+                  </td>
+                  <td>
                     <button
-                      className="btn btn-danger"
+                      className="btn"
                       onClick={() => handleDeleteClick(elemento.id)}
                     >
-                      Eliminar
+                      <img src={imgEliminar} alt="" className="imgEditar" />
                     </button>
                   </td>
                 </tr>

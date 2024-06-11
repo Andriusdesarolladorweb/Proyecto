@@ -52,6 +52,18 @@ export default function Menu() {
                   Tajertas de credito
                 </a>
               </li>
+
+              <li class="nav-item ">
+                <a
+                  class="nav-link  "
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Todos los reportes
+                </a>
+              </li>
             </ul>
           </div>
         </div>
