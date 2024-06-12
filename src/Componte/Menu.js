@@ -36,15 +36,16 @@ export default function Menu({ changeComponent }) {
                   Ahorros
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link  " href="#">
-                  Plan de pagos
-                </a>
-              </li>
 
               <li class="nav-item ">
                 <a class="nav-link  " href="#">
                   Tajertas de credito
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link  " href="#">
+                  Pagos de deudas
                 </a>
               </li>
 
