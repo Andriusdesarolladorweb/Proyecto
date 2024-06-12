@@ -1,5 +1,8 @@
 import "../css/menu.css";
-export default function Menu() {
+import Gastos from "./Gastos";
+import CrudEntradas from "./CrudEntradas";
+
+export default function Menu({ changeComponent }) {
   return (
     <div className="">
       <nav class="navbar navbar-expand-lg bg-black  ">
@@ -11,12 +14,20 @@ export default function Menu() {
           <div class="collapse navbar-collapse   " id="navbarNavDropdown">
             <ul class="navbar-nav  ">
               <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a
+                  class="nav-link "
+                  href="#"
+                  onClick={() => changeComponent(<CrudEntradas />)}
+                >
                   Entradas
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a
+                  class="nav-link "
+                  href="#"
+                  onClick={() => changeComponent(<Gastos />)}
+                >
                   Gastos
                 </a>
               </li>
