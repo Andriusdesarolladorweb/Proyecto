@@ -4,24 +4,14 @@ export default function Menu() {
     <div className="">
       <nav class="navbar navbar-expand-lg bg-black  ">
         <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">
+          <a class="navbar-brand text-white " href="#">
             Control de ahorros
           </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+
           <div class="collapse navbar-collapse   " id="navbarNavDropdown">
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav  ">
               <li class="nav-item">
-                <a class="nav-link  " aria-current="page" href="#">
+                <a class="nav-link " href="#">
                   Entradas
                 </a>
               </li>
@@ -42,25 +32,13 @@ export default function Menu() {
               </li>
 
               <li class="nav-item ">
-                <a
-                  class="nav-link  "
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                <a class="nav-link  " href="#">
                   Tajertas de credito
                 </a>
               </li>
 
               <li class="nav-item ">
-                <a
-                  class="nav-link  "
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                <a class="nav-link  " href="#">
                   Todos los reportes
                 </a>
               </li>

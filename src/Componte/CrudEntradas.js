@@ -2,7 +2,10 @@ import "../css/CrudEntradas.css";
 import React, { useState, useEffect } from "react";
 import imgEditar from "../img/Editar.png";
 import imgEliminar from "../img/borrar.png";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
+// Esta es la function principar del componte
 export default function CrudEntradas() {
   const mostrarDatos = [
     { id: 1, monto: 15000, fecha: "2024-06-14", concepto: "Pago Quincena" },
@@ -40,9 +43,14 @@ export default function CrudEntradas() {
 
   // Insertar registro
   const handleInsertClick = () => {
+    if (!monto || !fecha || !concepto) {
+      toast.error("Por favor, complete todos los campos");
+      return;
+    }
+
     if (!editId) {
-      const id = data.length ? Math.max(data.map((d) => d.id)) + 1 : 1;
-      const nuevaEntrada = { id, monto, fecha, concepto };
+      const newId = data.length ? Math.max(...data.map((d) => d.id)) + 1 : 1;
+      const nuevaEntrada = { id: newId, monto, fecha, concepto };
       setData([...data, nuevaEntrada]);
       setMonto("");
       setFecha("");
@@ -50,7 +58,7 @@ export default function CrudEntradas() {
     }
 
     //Alerta de que se registro correctamente
-    alert("!Se ha registrado correctamente¡");
+    toast.success("¡Se ha registrado correctamente!");
   };
 
   // Editar registros
@@ -83,7 +91,7 @@ export default function CrudEntradas() {
     setEditId();
 
     //Alerta de que se edito correctamente
-    alert("Se ha editado correctamente¡");
+    toast.success("¡Se ha editado correctamente!");
   };
 
   const handleDeleteClick = (id) => {
@@ -91,12 +99,13 @@ export default function CrudEntradas() {
     setData(newData);
 
     //Alerta de que se elimino correctamente
-    alert("Se ha eliminado correctamente¡");
+    toast.success("¡Se ha eliminado correctamente!");
   };
 
   return (
     <div>
-      <div className="container-primary d-flex justify-content-center p-5">
+      <ToastContainer />
+      <div className="container-primary d-flex  p-5">
         <div className="Container-formulario">
           <form className="Formulario bg-white text-black">
             <div className="Container-titulo bg-primary">
@@ -161,8 +170,8 @@ export default function CrudEntradas() {
                 <th>Monto</th>
                 <th>Fecha</th>
                 <th>Concepto</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th className="text-center">Editar</th>
+                <th className="text-center">Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -174,7 +183,7 @@ export default function CrudEntradas() {
                   <td>{elemento.concepto}</td>
                   <td className="d-flex">
                     <button
-                      className="btn "
+                      className="btn d-flex m-auto "
                       onClick={() => handleEditClick(elemento.id)}
                     >
                       <img src={imgEditar} alt="" className="imgEditar" />
@@ -182,7 +191,7 @@ export default function CrudEntradas() {
                   </td>
                   <td>
                     <button
-                      className="btn"
+                      className="btn d-flex m-auto"
                       onClick={() => handleDeleteClick(elemento.id)}
                     >
                       <img src={imgEliminar} alt="" className="imgEditar" />

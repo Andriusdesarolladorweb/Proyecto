@@ -5,10 +5,11 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+    "bootstrap-select-country": "4.2.0",
     "react": "^18.0.0",
     "react-dom": "18.2.0",
     "react-scripts": "^5.0.0",
-    "bootstrap-select-country": "4.2.0"
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@types/react": "18.2.38",
