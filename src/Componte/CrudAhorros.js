@@ -1,26 +1,15 @@
-import "../css/CrudEntradas.css";
+import "../css/Gastos.css";
 import React, { useState, useEffect } from "react";
 import imgEditar from "../img/Editar.png";
 import imgEliminar from "../img/borrar.png";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-//import ReportesEntradas from "./ReportesEntradas";
-
-// Esta es la function principar del componte
-export default function CrudEntradas() {
-  //Array para mostrar datos en la tabla
-  const mostrarDatos = [
-    { id: 1, monto: 15000, fecha: "2024-06-14", concepto: "Pago Quincena" },
-    { id: 2, monto: 15000, fecha: "2024-06-14", concepto: "Pago Quincena" },
-    { id: 3, monto: 15000, fecha: "2024-06-14", concepto: "Pago Quincena" },
-    { id: 4, monto: 15000, fecha: "2024-06-14", concepto: "Pago Quincena" },
-    { id: 5, monto: 15000, fecha: "2024-06-14", concepto: "Pago Quincena" },
-  ];
-
+export default function CrudAhorros() {
+  const MostrarDatos = [];
   // Cargar datos desde localStorage o usar datos predeterminados
   const [data, setData] = useState(() => {
-    const storedData = localStorage.getItem("entradas");
-    return storedData ? JSON.parse(storedData) : mostrarDatos;
+    const storedData = localStorage.getItem("Ahorros");
+    return storedData ? JSON.parse(storedData) : MostrarDatos;
   });
   const [monto, setMonto] = useState("");
   const [fecha, setFecha] = useState("");
@@ -29,7 +18,7 @@ export default function CrudEntradas() {
 
   // Guardar datos en localStorage cuando 'data' cambia
   useEffect(() => {
-    localStorage.setItem("entradas", JSON.stringify(data));
+    localStorage.setItem("Ahorros", JSON.stringify(data));
   }, [data]);
 
   const handleChange = (e) => {
@@ -111,7 +100,7 @@ export default function CrudEntradas() {
         <div className="Container-formulario">
           <form className="Formulario bg-white text-black">
             <div className="Container-titulo bg-primary">
-              <h4 className="text-center text-white">Registro De Entradas</h4>
+              <h4 className="text-center text-white">Registro De Ahorros</h4>
             </div>
             <div className="container">
               <div className="mb-3">
@@ -208,3 +197,5 @@ export default function CrudEntradas() {
     </div>
   );
 }
+
+//Array para mostrar datos en la tabla
