@@ -1,15 +1,18 @@
-/*import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function ReporteEntradas({ data }) {
-  const [reporteMensual, setReporteMesual] = useState([]);
+const ReporteEntradas = ({ data }) => {
+  const [reporteMensual, setReporteMensual] = useState([]);
   const [totalGeneral, setTotalGeneral] = useState(0);
 
   useEffect(() => {
     const calcularReporte = () => {
+      if (!data || !Array.isArray(data)) return;
+
       const agrupadoPorMes = data.reduce((acc, entrada) => {
-        const mes = entrada.fecha.slice(0, 7);
+        const fecha = typeof entrada.fecha === "string" ? entrada.fecha : "";
+        const mes = fecha.slice(0, 7); // Obtener año y mes (YYYY-MM)
         if (!acc[mes]) {
-          acc[mes] = { totalmensula: 0, entrada: [] };
+          acc[mes] = { totalMensual: 0, entradas: [] };
         }
         acc[mes].totalMensual += parseFloat(entrada.monto);
         acc[mes].entradas.push(entrada);
@@ -27,16 +30,18 @@ export default function ReporteEntradas({ data }) {
         0,
       );
 
-      setReporteMesual(reporte);
+      setReporteMensual(reporte);
       setTotalGeneral(total);
     };
 
-    calcularReporte();
+    if (data && data.length > 0) {
+      calcularReporte();
+    }
   }, [data]);
 
   return (
     <div>
-      <h1>Reporte de Entradas mensuales</h1>
+      <h2>Reporte de Entradas Mensuales</h2>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>
@@ -48,13 +53,14 @@ export default function ReporteEntradas({ data }) {
           {reporteMensual.map((reporte) => (
             <tr key={reporte.mes}>
               <td>{reporte.mes}</td>
-              <td>{reporte.totalMensual.toFixed(2)}</td>
+              <td>{reporte.totalMensual}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <h3>Total General: {totalGeneral.toFixed(2)}</h3>
+      <h2>Total General: {totalGeneral}</h2>
     </div>
   );
-}
-*/
+};
+
+export default ReporteEntradas;

@@ -1,6 +1,7 @@
 import "../css/menu.css";
 import Gastos from "./Gastos";
 import CrudEntradas from "./CrudEntradas";
+import ReporteEntradas from "./ReportesEntradas";
 
 export default function Menu({ changeComponent }) {
   return (
@@ -62,18 +63,22 @@ export default function Menu({ changeComponent }) {
 
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
-                      Action
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      onClick={() => changeComponent(<ReporteEntradas />)}
+                    >
+                      Reportes de Entradas
                     </a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="#">
-                      Another action
+                      Reportes de Gatos
                     </a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="#">
-                      Something else here
+                      Reportes de Ahorros
                     </a>
                   </li>
                 </ul>
