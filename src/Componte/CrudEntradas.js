@@ -4,7 +4,6 @@ import imgEditar from "../img/Editar.png";
 import imgEliminar from "../img/borrar.png";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import ReporteEntradas from "./ReportesEntradas";
 
 // Esta es la function principar del componte
 export default function CrudEntradas() {
@@ -205,8 +204,6 @@ export default function CrudEntradas() {
           </table>
         </div>
       </div>
-
-      <ReporteEntradas data={data} />
     </div>
   );
 }

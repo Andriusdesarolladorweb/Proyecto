@@ -1,7 +1,7 @@
 import "../css/menu.css";
 import Gastos from "./Gastos";
 import CrudEntradas from "./CrudEntradas";
-import ReporteEntradas from "./ReportesEntradas";
+import VistaEntradas from "./VistaEntradas";
 
 export default function Menu({ changeComponent }) {
   return (
@@ -66,7 +66,9 @@ export default function Menu({ changeComponent }) {
                     <a
                       class="dropdown-item"
                       href="#"
-                      onClick={() => changeComponent(<ReporteEntradas />)}
+                      onClick={() =>
+                        changeComponent(<VistaEntradas data={data} />)
+                      }
                     >
                       Reportes de Entradas
                     </a>
