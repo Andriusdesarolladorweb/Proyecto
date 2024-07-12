@@ -5,8 +5,13 @@ const ReporteEntradas = ({ data }) => {
   const [totalGeneral, setTotalGeneral] = useState(0);
 
   useEffect(() => {
+    console.log("Datos recibidos:", data);
+
     const calcularReporte = () => {
-      if (!data || !Array.isArray(data)) return;
+      if (!data || !Array.isArray(data)) {
+        console.error("Datos no válidos:", data);
+        return;
+      }
 
       const agrupadoPorMes = data.reduce((acc, entrada) => {
         const fecha = typeof entrada.fecha === "string" ? entrada.fecha : "";
@@ -25,10 +30,12 @@ const ReporteEntradas = ({ data }) => {
         entradas: agrupadoPorMes[mes].entradas,
       }));
 
+      console.log("Reporte calculado:", reporte); // Verifica el reporte calculado
       const total = data.reduce(
         (sum, entrada) => sum + parseFloat(entrada.monto),
         0,
       );
+      console.log("Total general calculado:", total);
 
       setReporteMensual(reporte);
       setTotalGeneral(total);
